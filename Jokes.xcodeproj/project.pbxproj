@@ -12,6 +12,7 @@
 		BAF2B8E728A3CA5B0010C043 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BAF2B8E628A3CA5B0010C043 /* Assets.xcassets */; };
 		BAF2B8EA28A3CA5B0010C043 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BAF2B8E928A3CA5B0010C043 /* Preview Assets.xcassets */; };
 		BAF2B8F228A3D5D40010C043 /* JokeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAF2B8F128A3D5D40010C043 /* JokeModel.swift */; };
+		BAF2B8F528A438B50010C043 /* FetchData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAF2B8F428A438B50010C043 /* FetchData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,6 +22,7 @@
 		BAF2B8E628A3CA5B0010C043 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BAF2B8E928A3CA5B0010C043 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		BAF2B8F128A3D5D40010C043 /* JokeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JokeModel.swift; sourceTree = "<group>"; };
+		BAF2B8F428A438B50010C043 /* FetchData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +55,7 @@
 		BAF2B8E128A3CA5A0010C043 /* Jokes */ = {
 			isa = PBXGroup;
 			children = (
+				BAF2B8F328A438A30010C043 /* Service */,
 				BAF2B8F028A3CABF0010C043 /* model */,
 				BAF2B8E228A3CA5A0010C043 /* JokesApp.swift */,
 				BAF2B8E428A3CA5A0010C043 /* ContentView.swift */,
@@ -76,6 +79,14 @@
 				BAF2B8F128A3D5D40010C043 /* JokeModel.swift */,
 			);
 			path = model;
+			sourceTree = "<group>";
+		};
+		BAF2B8F328A438A30010C043 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				BAF2B8F428A438B50010C043 /* FetchData.swift */,
+			);
+			path = Service;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -150,6 +161,7 @@
 			files = (
 				BAF2B8E528A3CA5A0010C043 /* ContentView.swift in Sources */,
 				BAF2B8E328A3CA5A0010C043 /* JokesApp.swift in Sources */,
+				BAF2B8F528A438B50010C043 /* FetchData.swift in Sources */,
 				BAF2B8F228A3D5D40010C043 /* JokeModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

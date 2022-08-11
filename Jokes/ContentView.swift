@@ -18,6 +18,7 @@ struct ContentView: View {
     
     @State var jokes: Jokes = Jokes();
     @State var amPressed: Bool = false;
+    private var fetch:FetchData = FetchData();
     
     
     
@@ -43,7 +44,13 @@ struct ContentView: View {
                 Button {
                    
                     print("get jokes");
-                    self.amPressed.toggle()
+                    self.amPressed.toggle();
+                    Task {
+                        do {
+                            jokes = try await fetch.fetch();
+                            print(jokes);
+                        }
+                    }
                     
                 } label:{
                     FetchDataButton(pressed: self.amPressed);
