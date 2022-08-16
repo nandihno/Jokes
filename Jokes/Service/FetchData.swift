@@ -9,6 +9,7 @@ import Foundation
 
 enum FetchDataError: Error {
     case urlWrongError
+    case noJokes
     
 }
 
@@ -36,7 +37,12 @@ struct FetchData {
         let (data, httpResponse) = try await URLSession.shared.data(for: request);
         
         jokes = try JSONDecoder().decode(Jokes.self,from:data);
-        print("The data we got is --> \(jokes.results)");
+        guard let thisResult = jokes.results
+        else {
+            print("no results to display");
+            throw FetchDataError.noJokes;
+        }
+        print("The data we got is --> \(thisResult)");
         return jokes;
         
     }

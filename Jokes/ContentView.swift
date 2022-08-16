@@ -35,15 +35,20 @@ struct ContentView: View {
                     .font(.largeTitle)
                     .fontWeight(.bold)
                 Spacer()
+                
+                
                 List(myResults) { aJoke in
                     JokeView(theJoke: aJoke.joke);
                     };
+                
+                
                     
                 
                 Button {
                    
                     print("get jokes");
-                    self.amPressed.toggle();
+                    amPressed.toggle();
+                    myResults = [];
                     Task {
                         do {
                             jokes = try await fetch.fetch();
@@ -74,7 +79,7 @@ struct FetchDataButton: View {
     var body: some View {
         VStack {
             Image(pressed == true ? "haooyHamster" : "happyHamste2").aspectRatio(contentMode: .fit)
-            Text("Press Me").font( .headline).foregroundColor(Color.white)
+            Text("Press Me").font(.caption2).foregroundColor(Color.white)
             
         }
         
@@ -99,7 +104,7 @@ struct JokeView: View {
             Text(theJoke)
                 .font(.subheadline)
                 .fontWeight(.medium)
-                .lineLimit(2);
+                .lineLimit(4);
             
             
         }
