@@ -18,6 +18,7 @@ struct ContentView: View {
     
     @State var jokes: Jokes = Jokes();
     @State var amPressed: Bool = false;
+    @State var myResults:[Joke] = [];
     private var fetch:FetchData = FetchData();
     
     
@@ -34,11 +35,9 @@ struct ContentView: View {
                     .font(.largeTitle)
                     .fontWeight(.bold)
                 Spacer()
-                    List {
-                        JokeView(theJoke: "Joke 1")
-                        JokeView(theJoke: "Joke 2")
-                        JokeView(theJoke: "Joke 3")
-                    }.listRowBackground(Color.green);
+                List(myResults) { aJoke in
+                    JokeView(theJoke: aJoke.joke);
+                    };
                     
                 
                 Button {
@@ -48,7 +47,14 @@ struct ContentView: View {
                     Task {
                         do {
                             jokes = try await fetch.fetch();
-                            print(jokes);
+                            if let myArr = jokes.results {
+                                print("my arr is \(myArr)");
+                                myResults = myArr;
+                            }
+                            else {
+                                myResults.append(Joke(id: "0", joke: "No Joke Found!"));
+                            }
+                            print(myResults);
                         }
                     }
                     
