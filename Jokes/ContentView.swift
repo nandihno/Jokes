@@ -47,11 +47,13 @@ struct ContentView: View {
                 Button {
                    
                     print("get jokes");
+                    let MAX_PAGES:Int = 33;
+                    let rndPage:Int = Int.random(in: 1...MAX_PAGES);
                     amPressed.toggle();
                     myResults = [];
                     Task {
                         do {
-                            jokes = try await fetch.fetch();
+                            jokes = try await fetch.fetch(pageNo: rndPage);
                             if let myArr = jokes.results {
                                 print("my arr is \(myArr)");
                                 myResults = myArr;

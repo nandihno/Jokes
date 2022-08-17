@@ -15,12 +15,18 @@ enum FetchDataError: Error {
 
 struct FetchData {
     
-    func fetch() async throws -> Jokes {
+    
+    func fetch(pageNo: Int) async throws -> Jokes {
         var jokes: Jokes = Jokes();
         var components:URLComponents = URLComponents();
+        
         components.scheme = "https";
         components.host = "icanhazdadjoke.com";
         components.path = "/search";
+        components.queryItems = [
+            URLQueryItem(name:"page",value: String(pageNo))
+            
+        ];
         print("the endpoint is -> \(components.string!)");
         guard
             let url = components.url
